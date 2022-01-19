@@ -1,14 +1,10 @@
 const query = require('./query');
-const model = require('./model');
 const wrapper = require('../../helpers/utils/wrapper');
 const validate = require('validate.js');
-const utils = require('../../helpers/utils/utils');
-const jwtAuth = require('../../auth/jwt_auth_helper');
 const config = require('../../configs/global_config');
 const uuid = require('uuid/v4');
 const logger = require('../../helpers/utils/logger');
 const DateHelper = require("../../helpers/utils/date");
-const dateHelper = new DateHelper()
 const axios = require('axios')
 const lodash = require('lodash')
 const moment = require('moment')
@@ -121,9 +117,7 @@ class Storage {
         } = payload
 
         try {
-            console.log(payload);
             const convert = await axios.get(`${config.get('/convert')}`)
-            console.log('convert ', convert);
             const data = {
                 idr: convert.data.USD_IDR,
                 usd: 1,

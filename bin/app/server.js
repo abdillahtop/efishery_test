@@ -4,12 +4,12 @@ const healthRoute = require('../modules/health_check/api_handler')
 const userApiHandler = require('../modules/users/api_handler');
 const storageApiHandler = require('../modules/storage/api_handler');
 const jwtAuth = require('../auth/jwt_auth_helper');
-const route = require('../configs/route_config')
+const route = require('../configs/route_config');
 
 Route
   //HEALTH CHECK
   .get('/health', healthRoute.checkHealthCheck)
-  .get('/test-server', (req, res) => {
+  .get('/', (req, res) => {
     res.send({
       message: 'Server running well!!',
       timestamp: new Date()

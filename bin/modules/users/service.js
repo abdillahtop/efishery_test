@@ -55,13 +55,13 @@ class Users {
 
         if (validate.isEmpty(getUser.data)) {
             logger.log(ctx, 'user not found');
-            return wrapper.error(ctx, 'user not found', 404);
+            return wrapper.error('fail', 'user not found', 404);
         }
 
         const user = getUser.data[0]
         if (user.password !== password) {
             logger.log(ctx, 'password not match');
-            return wrapper.error(ctx, 'password not match', 400);
+            return wrapper.error('fail', 'password not match', 400);
         }
         let role = ''
         if (user.role_id === '1') {
@@ -106,7 +106,7 @@ class Users {
 
         if (validate.isEmpty(getUser.data)) {
             logger.log(ctx, 'user not found');
-            return wrapper.error(ctx, 'user not found', 404);
+            return wrapper.error('fail', 'user not found', 404);
         }
 
         logger.log(ctx, 'get detail user success');

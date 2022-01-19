@@ -6,15 +6,18 @@
   "scripts": {
     "start": "node index",
     "start:dev": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint bin",
-    "lint:fix": "npm run lint --fix"
+    "lint:fix": "npm run lint --fix",
+    "test": "jest \".test.js\" --timeout=5000",
+    "test:coverage": "npm run test -- --coverage --watchAll=false"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "assert": "^2.0.0",
     "axios": "^0.24.0",
     "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
     "confidence": "^4.0.2",
     "crypto": "^1.0.1",
     "crypto-js": "^4.0.0",
@@ -28,8 +31,11 @@
     "jsonwebtoken": "^8.5.1",
     "lint": "^0.7.0",
     "lodash": "^4.17.21",
+    "mocha": "^9.1.4",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
+    "nyc": "^15.1.0",
+    "sinon": "^12.0.1",
     "uuid": "^3.3.3",
     "validate.js": "^0.13.1",
     "winston": "^3.2.1"
@@ -40,6 +46,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^27.4.7"
   }
 }
